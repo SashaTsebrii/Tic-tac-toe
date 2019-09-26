@@ -44,7 +44,9 @@ extension UIColor {
 extension UIColor {
     struct Design {
         
-        static let orange = UIColor(netHex: 0xef6c00)
-        static let amber = UIColor(netHex: 0xff8f00)
+        static let darkNavy = UIColor(netHex: 0xe011A27)
+        static let blueberry = UIColor(netHex: 0x063852)
+        static let tangerine = UIColor(netHex: 0xF0810F)
+        static let dafodil = UIColor(netHex: 0xE6DF44)
     }
 }

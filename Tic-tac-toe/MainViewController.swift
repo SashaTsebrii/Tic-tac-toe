@@ -17,12 +17,9 @@ class MainViewController: UIViewController {
     
     private let xButton: UIButton = {
         let button = UIButton()
+        button.setTitle("select", for: .normal)
         button.setImage(UIImage(named: "cross"), for: .normal)
-        button.backgroundColor = UIColor.white
-        button.layer.cornerRadius = 16
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 2
-        button.layer.masksToBounds = true
+        button.tintColor = UIColor.Design.tangerine
         button.addTarget(self, action: #selector(xButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -31,11 +28,7 @@ class MainViewController: UIViewController {
     private let oButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "nought"), for: .normal)
-        button.backgroundColor = UIColor.white
-        button.layer.cornerRadius = 16
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 2
-        button.layer.masksToBounds = true
+        button.tintColor = UIColor.Design.dafodil
         button.addTarget(self, action: #selector(oButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -43,7 +36,7 @@ class MainViewController: UIViewController {
     
     private let player1ImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "fish")
+        imageView.image = UIImage(named: "star")
         imageView.tintColor = UIColor.white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -51,7 +44,7 @@ class MainViewController: UIViewController {
     
     private let player2ImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "crab")
+        imageView.image = UIImage(named: "shell")
         imageView.tintColor = UIColor.white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -61,14 +54,14 @@ class MainViewController: UIViewController {
     private let multiPlayerSwitch: UISwitch = {
         let switcher = UISwitch()
         switcher.isOn = true
-        switcher.onTintColor = UIColor.orange
-        switcher.tintColor = UIColor.orange
+        switcher.onTintColor = UIColor.black.withAlphaComponent(0.7)
+        switcher.tintColor = UIColor.black.withAlphaComponent(0.7)
         return switcher
     }()
     
     private let button0: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 0
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -79,7 +72,7 @@ class MainViewController: UIViewController {
     
     private let button1: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 1
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -90,7 +83,7 @@ class MainViewController: UIViewController {
     
     private let button2: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 2
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -101,7 +94,7 @@ class MainViewController: UIViewController {
     
     private let button3: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 3
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -112,7 +105,7 @@ class MainViewController: UIViewController {
     
     private let button4: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 4
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -123,7 +116,7 @@ class MainViewController: UIViewController {
     
     private let button5: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 5
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -134,7 +127,7 @@ class MainViewController: UIViewController {
     
     private let button6: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 6
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -145,7 +138,7 @@ class MainViewController: UIViewController {
     
     private let button7: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 7
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -156,7 +149,7 @@ class MainViewController: UIViewController {
     
     private let button8: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.tintColor = UIColor.white
         button.tag = 8
         button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -167,16 +160,18 @@ class MainViewController: UIViewController {
     
     private let player1ScoreLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.black.withAlphaComponent(0.7)
         label.text = "score: 0"
+        label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let player2ScoreLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
+        label.textColor = UIColor.black.withAlphaComponent(0.7)
         label.text = "score: 0"
+        label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -192,8 +187,8 @@ class MainViewController: UIViewController {
     // Game history
     private let historyTextView: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = UIColor.white
-        textView.textColor = UIColor.orange
+        textView.backgroundColor = UIColor.clear
+        textView.textColor = UIColor.white
         textView.textAlignment = .center
         textView.font = UIFont.init(name: Constant.Font.Name.regular,
                                     size: Constant.Font.Size.regular)
@@ -205,7 +200,7 @@ class MainViewController: UIViewController {
     
     private let resetButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         let string = "Reset game"
         let font = UIFont.init(name: Constant.Font.Name.medium,
                                size: Constant.Font.Size.medium)
@@ -282,10 +277,16 @@ class MainViewController: UIViewController {
     
     // MARK: - Lifecycle
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func loadView() {
         super.loadView()
         
-        view.backgroundColor = UIColor.orange
+        // Background view
+        
+        view.backgroundColor = UIColor.Design.blueberry
         
         // Bar button items
         
@@ -295,53 +296,90 @@ class MainViewController: UIViewController {
         let resetBarButton = UIBarButtonItem(title: "Reset game", style: .plain, target: self, action: #selector(resetBarButtonTapped(_:)))
         navigationItem.rightBarButtonItem = resetBarButton
         
+        // Top label
+        
+        let topLabel = UILabel()
+        topLabel.text = "Score"
+        topLabel.font = UIFont.init(name: Constant.Font.Name.medium,
+                                    size: Constant.Font.Size.medium)
+        topLabel.textAlignment = .center
+        topLabel.textColor = UIColor.white
+        topLabel.backgroundColor = UIColor.Design.darkNavy
+        topLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let underTopLabel = UILabel()
+        underTopLabel.text = "*If necessary, select figure"
+        underTopLabel.font = UIFont.init(name: Constant.Font.Name.regular,
+                                         size: 12)
+        underTopLabel.textAlignment = .center
+        underTopLabel.textColor = UIColor.white
+        underTopLabel.backgroundColor = UIColor.Design.darkNavy
+        underTopLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(topLabel)
+        view.addSubview(underTopLabel)
+        
+        NSLayoutConstraint.activate([
+            topLabel.heightAnchor.constraint(equalToConstant: 32),
+            topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            topLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            topLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            underTopLabel.heightAnchor.constraint(equalToConstant: 16),
+            underTopLabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            underTopLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            underTopLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            ])
+        
         // Player 1 stack view
         
-        let player1StackView = UIStackView(arrangedSubviews: [xButton, player1ImageView, player1ScoreLabel])
+        let player1StackView = UIStackView(arrangedSubviews: [xButton, /*player1ImageView, */player1ScoreLabel])
         player1StackView.axis = .vertical
         player1StackView.alignment = .center
         player1StackView.distribution = .equalSpacing
+        player1StackView.spacing = 8
         player1StackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(player1StackView)
         
         NSLayoutConstraint.activate([
-            xButton.heightAnchor.constraint(equalToConstant: 32),
-            xButton.widthAnchor.constraint(equalToConstant: 32)
+            xButton.heightAnchor.constraint(equalToConstant: 64),
+            xButton.widthAnchor.constraint(equalToConstant: 64)
             ])
         
-        NSLayoutConstraint.activate([
-            player1ImageView.heightAnchor.constraint(equalToConstant: 64),
-            player1ImageView.widthAnchor.constraint(equalToConstant: 64)
-            ])
+//        NSLayoutConstraint.activate([
+//            player1ImageView.heightAnchor.constraint(equalToConstant: 64),
+//            player1ImageView.widthAnchor.constraint(equalToConstant: 64)
+//            ])
         
         NSLayoutConstraint.activate([
-            player1StackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            player1StackView.topAnchor.constraint(equalTo: underTopLabel.bottomAnchor, constant: 16),
             player1StackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 64)
             ])
         
         // Player 2 stack view
         
-        let player2StackView = UIStackView(arrangedSubviews: [oButton, player2ImageView, player2ScoreLabel])
+        let player2StackView = UIStackView(arrangedSubviews: [oButton, /*player2ImageView, */player2ScoreLabel])
         player2StackView.axis = .vertical
         player2StackView.alignment = .center
         player2StackView.distribution = .equalSpacing
+        player2StackView.spacing = 8
         player2StackView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(player2StackView)
         
         NSLayoutConstraint.activate([
-            oButton.heightAnchor.constraint(equalToConstant: 32),
-            oButton.widthAnchor.constraint(equalToConstant: 32)
+            oButton.heightAnchor.constraint(equalToConstant: 64),
+            oButton.widthAnchor.constraint(equalToConstant: 64)
             ])
         
-        NSLayoutConstraint.activate([
-            player2ImageView.heightAnchor.constraint(equalToConstant: 64),
-            player2ImageView.widthAnchor.constraint(equalToConstant: 64)
-            ])
+//        NSLayoutConstraint.activate([
+//            player2ImageView.heightAnchor.constraint(equalToConstant: 64),
+//            player2ImageView.widthAnchor.constraint(equalToConstant: 64)
+//            ])
         
         NSLayoutConstraint.activate([
-            player2StackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            player2StackView.topAnchor.constraint(equalTo: player1StackView.topAnchor),
             player2StackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -64)
             ])
         
@@ -350,7 +388,7 @@ class MainViewController: UIViewController {
         let gridWidth = view.bounds.width - (16 * 2)
         
         let gridView = UIView()
-        gridView.backgroundColor = UIColor.white
+        gridView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         gridView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(gridView)
@@ -374,7 +412,7 @@ class MainViewController: UIViewController {
         
         // Cells
         
-        let cellWidth = (gridWidth / 3) - (4 * 2)
+        let cellWidth = (gridWidth / 3) - (2 * 2)
         
         NSLayoutConstraint.activate([
             button0.widthAnchor.constraint(equalToConstant: cellWidth),
@@ -423,13 +461,48 @@ class MainViewController: UIViewController {
             button8.bottomAnchor.constraint(equalTo: gridView.bottomAnchor)
             ])
         
+        // History label
+        
+        let historyLabel = UILabel()
+        historyLabel.text = "History"
+        historyLabel.font = UIFont.init(name: Constant.Font.Name.medium,
+                                        size: Constant.Font.Size.medium)
+        historyLabel.textAlignment = .center
+        historyLabel.textColor = UIColor.white
+        historyLabel.backgroundColor = UIColor.Design.darkNavy
+        historyLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let underHistoryLabel = UILabel()
+        underHistoryLabel.text = "*Below the history of past games"
+        underHistoryLabel.font = UIFont.init(name: Constant.Font.Name.regular,
+                                             size: 12)
+        underHistoryLabel.textAlignment = .center
+        underHistoryLabel.textColor = UIColor.white
+        underHistoryLabel.backgroundColor = UIColor.Design.darkNavy
+        underHistoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(historyLabel)
+        view.addSubview(underHistoryLabel)
+        
+        NSLayoutConstraint.activate([
+            historyLabel.heightAnchor.constraint(equalToConstant: 32),
+            historyLabel.topAnchor.constraint(equalTo: gridView.bottomAnchor, constant: 16),
+            historyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            historyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            underHistoryLabel.heightAnchor.constraint(equalToConstant: 16),
+            underHistoryLabel.topAnchor.constraint(equalTo: historyLabel.bottomAnchor),
+            underHistoryLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            underHistoryLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            ])
+        
         // History text view
         
         view.addSubview(historyTextView)
         
         NSLayoutConstraint.activate([
-            historyTextView.topAnchor.constraint(equalTo: gridView.bottomAnchor, constant: 16),
-            historyTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 16),
+            historyTextView.topAnchor.constraint(equalTo: underHistoryLabel.bottomAnchor),
+            historyTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             historyTextView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             historyTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
             ])
@@ -467,7 +540,7 @@ class MainViewController: UIViewController {
                                        size: Constant.Font.Size.heavy)
         playerLabel.textAlignment = .center
         playerLabel.textColor = UIColor.white
-        playerLabel.backgroundColor = UIColor.orange
+        playerLabel.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         playerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         contextView.addSubview(playerLabel)
@@ -518,7 +591,7 @@ class MainViewController: UIViewController {
                                        size: Constant.Font.Size.heavy)
         gameSettingsLabel.textAlignment = .center
         gameSettingsLabel.textColor = UIColor.white
-        gameSettingsLabel.backgroundColor = UIColor.orange
+        gameSettingsLabel.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         gameSettingsLabel.translatesAutoresizingMaskIntoConstraints = false
         
         contextView.addSubview(gameSettingsLabel)
@@ -537,7 +610,7 @@ class MainViewController: UIViewController {
         multiPlayerLabel.font = UIFont.init(name: Constant.Font.Name.medium,
                                              size: Constant.Font.Size.medium)
         multiPlayerLabel.textAlignment = .left
-        multiPlayerLabel.textColor = UIColor.orange
+        multiPlayerLabel.textColor = UIColor.black.withAlphaComponent(0.7)
         multiPlayerLabel.backgroundColor = UIColor.white
         multiPlayerLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -648,10 +721,12 @@ class MainViewController: UIViewController {
         // Set cross symbol for player 1
         if currentPlayer == 1 {
             sender.setImage(crossImage, for: .normal)
+            sender.tintColor = UIColor.Design.tangerine
         }
             // Set nought symbol for player 2
         else if currentPlayer == 2 {
             sender.setImage(noughtImage, for: .normal)
+            sender.tintColor = UIColor.Design.dafodil
         }
         
         // Get result from winlose function to variable winner
@@ -744,7 +819,7 @@ class MainViewController: UIViewController {
         grid = [[0, 0, 0] , [0, 0, 0], [0, 0, 0]]
         
         // All buttons are empty when the game starts
-        for button in cellButtons{
+        for button in cellButtons {
             button.setImage(nil, for: .normal)
         }
         
@@ -791,7 +866,7 @@ class MainViewController: UIViewController {
         }
         
         // Top left to bottom right
-        if grid[0][0] != 0 && grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]{
+        if grid[0][0] != 0 && grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] {
             return grid[2][2]
         }
         return 0
@@ -799,11 +874,11 @@ class MainViewController: UIViewController {
     
     
     // Alert message shows who won the game
-    func alertWinner(playerName : String){
+    func alertWinner(playerName : String) {
         let alertController = UIAlertController(title: "Alert", message: "\(playerName) Won!", preferredStyle: .alert)
         
         // When there is a winner, the grid will start as new game
-        let okAction = UIAlertAction(title: "Ok", style: .default){
+        let okAction = UIAlertAction(title: "Ok", style: .default) {
             (action) -> Void in self.start()
         }
         
@@ -812,7 +887,7 @@ class MainViewController: UIViewController {
     }
     
     // When single player mode is on
-    func whereToPlay() -> (Int, Int, Int, Bool){
+    func whereToPlay() -> (Int, Int, Int, Bool) {
         var index = -1
         var draw = 0
         var gridRowIndex = 0
@@ -823,8 +898,7 @@ class MainViewController: UIViewController {
                 index = index + 1
                 
                 // Check when none of the players have played the game
-                if grid[row][col] == 0
-                {
+                if grid[row][col] == 0 {
                     
                     // Set the cell to 2
                     grid[row][col] = 2
@@ -833,8 +907,7 @@ class MainViewController: UIViewController {
                     var i = winlose()
                     
                     // If the value is actually 2, player 2 wins the game
-                    if i == 2
-                    {
+                    if i == 2 {
                         return (index, row, col, true)
                     }
                     
@@ -843,8 +916,7 @@ class MainViewController: UIViewController {
                     i = winlose()
                     
                     // If so, this means player 2 did not win the match by returning the flag as false
-                    if i == 1
-                    {
+                    if i == 1 {
                         return (index, row, col, false)
                     }
                     
